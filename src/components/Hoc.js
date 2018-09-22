@@ -5,26 +5,22 @@ import {connect} from "react-redux";
 import {add} from "../redux/actions";
 
 function Hoc(WrappedComponent) {
-   class withRedux extends React.Component {
-     state ={
-       CheckList: this.props.CheckList
-     };
-    render () {
-      const props = this.props;
-      return (
-        <Grid style={{padding: 40, borderRadius: 12}}>
-          <Grid item md={12} >
-            <Header/>
-            <Paper elevation={11}>
-              <WrappedComponent {...props}/>
-            </Paper>
-          </Grid>
-        </Grid>
-      )
-    }
+  function  withRedux (props) {
+    console.log(props)
+    return (
+     <Grid style={{padding: 40, borderRadius: 12}}>
+       <Grid item md={12} >
+         <Header/>
+         <Paper elevation={11}>
+           <WrappedComponent {...props}/>
+         </Paper>
+       </Grid>
+     </Grid>
+    )
   }
 
   const mapStateToProps = ({CheckList}) => {
+     console.log(CheckList)
     return {
       CheckList: CheckList
     };

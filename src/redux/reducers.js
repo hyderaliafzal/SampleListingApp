@@ -16,6 +16,7 @@ export default (state= CheckList, action) => {
       }
       localStorage.CheckList = JSON.stringify(state);
       return {...state};
+    default:
+      return {...state};
   }
-  return {...state};
 }
